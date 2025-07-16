@@ -74,9 +74,9 @@ const Index = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#" className="hover:text-orange-400 transition-colors">Главная</a>
-          <a href="#reviews" className="hover:text-orange-400 transition-colors">Обзоры игр</a>
-          <a href="#telegram" className="hover:text-orange-400 transition-colors">Telegram</a>
+          <a href="/" className="hover:text-orange-400 transition-colors">Главная</a>
+          <a href="/reviews" className="hover:text-orange-400 transition-colors">Обзоры игр</a>
+          <a href="https://t.me/yariktyt5" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Telegram</a>
         </nav>
 
         <Button variant="outline" className="border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white">
