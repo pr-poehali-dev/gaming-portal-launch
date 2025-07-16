@@ -34,7 +34,7 @@ const Index = () => {
       rating: 9.3,
       genre: "Симулятор",
       price: "429₽",
-      image: "/placeholder.svg",
+      image: "https://cdn.poehali.dev/files/b1da5fe9-d1a3-44cb-99fb-e23db2b26423.jpg",
       status: "Хит"
     }
   ];
