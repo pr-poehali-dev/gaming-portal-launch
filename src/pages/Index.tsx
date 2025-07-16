@@ -26,7 +26,7 @@ const Index = () => {
       rating: 8.7,
       genre: "Шутер",
       price: "Бесплатно",
-      image: "/placeholder.svg",
+      image: "https://cdn.poehali.dev/files/7ad8b8cd-2782-4b12-81d8-672a7840d629.png",
       status: "Популярно"
     },
     {
