@@ -28,6 +28,14 @@ const Index = () => {
       price: "Бесплатно",
       image: "/placeholder.svg",
       status: "Популярно"
+    },
+    {
+      title: "People Playground",
+      rating: 9.3,
+      genre: "Симулятор",
+      price: "429₽",
+      image: "/placeholder.svg",
+      status: "Хит"
     }
   ];
 
