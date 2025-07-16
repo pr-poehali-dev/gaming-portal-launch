@@ -108,9 +108,11 @@ const Index = () => {
               <Icon name="Play" size={20} className="mr-2" />
               Смотреть обзоры
             </Button>
-            <Button size="lg" variant="outline" className="border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white px-8 py-3 text-lg">
-              <Icon name="MessageCircle" size={20} className="mr-2" />
-              Telegram канал
+            <Button asChild size="lg" variant="outline" className="border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white px-8 py-3 text-lg">
+              <a href="https://t.me/yariktyt5" target="_blank" rel="noopener noreferrer">
+                <Icon name="MessageCircle" size={20} className="mr-2" />
+                Telegram канал
+              </a>
             </Button>
           </div>
         </div>
@@ -218,9 +220,11 @@ const Index = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button size="lg" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 text-lg">
-                  <Icon name="MessageCircle" size={20} className="mr-2" />
-                  Подписаться на канал
+                <Button asChild size="lg" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 text-lg">
+                  <a href="https://t.me/yariktyt5" target="_blank" rel="noopener noreferrer">
+                    <Icon name="MessageCircle" size={20} className="mr-2" />
+                    Подписаться на канал
+                  </a>
                 </Button>
                 <div className="flex items-center text-gray-300">
                   <Icon name="Users" size={20} className="mr-2" />
