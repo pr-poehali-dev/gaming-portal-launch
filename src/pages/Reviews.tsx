@@ -1,9 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Reviews = () => {
+  const [selectedGame, setSelectedGame] = useState<string | null>(null);
   const gameReviews = [
     {
       title: "People Playground",
@@ -12,6 +15,7 @@ const Reviews = () => {
       image: "https://cdn.poehali.dev/files/b1da5fe9-d1a3-44cb-99fb-e23db2b26423.jpg",
       description: "Подробный обзор самого безумного симулятора физики. Экспериментируй с ragdoll персонажами!",
       videoUrl: "https://rutube.ru/video/6376135964f54a3b4f6d2d9c3240d670/?r=plwm",
+      steamUrl: "https://store.steampowered.com/app/1118200/People_Playground/",
       publishDate: "15 июля 2024",
       views: "12.5K",
       status: "Новый обзор"
@@ -117,12 +121,40 @@ const Reviews = () => {
                   </span>
                 </div>
                 
-                <Button asChild className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700">
-                  <a href={review.videoUrl} target="_blank" rel="noopener noreferrer">
-                    <Icon name="Play" size={16} className="mr-2" />
-                    Смотреть обзор
-                  </a>
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700">
+                      <Icon name="Play" size={16} className="mr-2" />
+                      Открыть игру
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="bg-gray-800 border-gray-700 text-white">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl font-bold text-orange-400">
+                        {review.title}
+                      </DialogTitle>
+                      <DialogDescription className="text-gray-300">
+                        Выберите, что хотите посмотреть
+                      </DialogDescription>
+                    </DialogHeader>
+                    
+                    <div className="flex flex-col gap-4 mt-6">
+                      <Button asChild size="lg" className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700">
+                        <a href={review.videoUrl} target="_blank" rel="noopener noreferrer">
+                          <Icon name="Play" size={20} className="mr-2" />
+                          Смотреть обзор на Rutube
+                        </a>
+                      </Button>
+                      
+                      <Button asChild size="lg" variant="outline" className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white">
+                        <a href={review.steamUrl} target="_blank" rel="noopener noreferrer">
+                          <Icon name="ExternalLink" size={20} className="mr-2" />
+                          Открыть в Steam
+                        </a>
+                      </Button>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </CardContent>
             </Card>
           ))}
