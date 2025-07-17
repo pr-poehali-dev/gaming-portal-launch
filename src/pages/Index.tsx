@@ -73,7 +73,7 @@ const Index = () => {
       title: "People Playground",
       rating: 9.3,
       genre: "Симулятор",
-      price: "429₽",
+      price: "259₽",
       image: "https://cdn.poehali.dev/files/b1da5fe9-d1a3-44cb-99fb-e23db2b26423.jpg",
       status: "Хит"
     }
