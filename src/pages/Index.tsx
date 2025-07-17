@@ -1,9 +1,49 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Index = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const catalogGames = [
+    {
+      title: "People Playground",
+      rating: 9.3,
+      genre: "Симулятор",
+      image: "https://cdn.poehali.dev/files/b1da5fe9-d1a3-44cb-99fb-e23db2b26423.jpg",
+      reviewUrl: "https://rutube.ru/video/6376135964f54a3b4f6d2d9c3240d670/?r=plwm",
+      steamUrl: "https://store.steampowered.com/app/1118200/People_Playground/",
+      hasReview: true
+    },
+    {
+      title: "Counter-Strike 2",
+      rating: 8.7,
+      genre: "Шутер",
+      image: "https://cdn.poehali.dev/files/7ad8b8cd-2782-4b12-81d8-672a7840d629.png",
+      steamUrl: "https://store.steampowered.com/app/730/CounterStrike_2/",
+      hasReview: false
+    },
+    {
+      title: "Cyberpunk 2077",
+      rating: 9.1,
+      genre: "RPG",
+      image: "/placeholder.svg",
+      steamUrl: "https://store.steampowered.com/app/1091500/Cyberpunk_2077/",
+      hasReview: false
+    },
+    {
+      title: "Baldur's Gate 3",
+      rating: 9.8,
+      genre: "RPG",
+      image: "/placeholder.svg",
+      steamUrl: "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
+      hasReview: false
+    }
+  ];
   const featuredGames = [
     {
       title: "Cyberpunk 2077",
@@ -79,10 +119,81 @@ const Index = () => {
           <a href="https://t.me/yariktyt5" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Telegram</a>
         </nav>
 
-        <Button variant="outline" className="border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white">
-          <Icon name="Menu" size={20} className="md:hidden" />
-          <span className="hidden md:inline">Подписаться</span>
-        </Button>
+        <div className="flex items-center space-x-3">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" className="border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white">
+                <Icon name="Menu" size={20} className="mr-2" />
+                <span className="hidden sm:inline">Каталог</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="bg-gray-900 border-gray-700 text-white w-80">
+              <SheetHeader>
+                <SheetTitle className="text-2xl font-bold text-orange-400 flex items-center">
+                  <Icon name="Library" size={24} className="mr-2" />
+                  Каталог игр
+                </SheetTitle>
+              </SheetHeader>
+              
+              <div className="mt-6 space-y-4">
+                {catalogGames.map((game, index) => (
+                  <div key={index} className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 hover:border-orange-500 transition-colors">
+                    <div className="flex items-start space-x-3">
+                      <img 
+                        src={game.image} 
+                        alt={game.title} 
+                        className="w-16 h-16 object-cover rounded-lg"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between mb-1">
+                          <h3 className="font-semibold text-white truncate">{game.title}</h3>
+                          <div className="flex items-center text-xs">
+                            <Icon name="Star" size={12} className="text-yellow-400 mr-1 fill-current" />
+                            <span className="text-yellow-400">{game.rating}</span>
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-400 mb-2">{game.genre}</p>
+                        
+                        <div className="flex flex-col gap-2">
+                          {game.hasReview && (
+                            <Button asChild size="sm" className="bg-red-600 hover:bg-red-700 text-xs h-7">
+                              <a href={game.reviewUrl} target="_blank" rel="noopener noreferrer">
+                                <Icon name="Play" size={12} className="mr-1" />
+                                Обзор
+                              </a>
+                            </Button>
+                          )}
+                          <Button asChild size="sm" variant="outline" className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white text-xs h-7">
+                            <a href={game.steamUrl} target="_blank" rel="noopener noreferrer">
+                              <Icon name="ExternalLink" size={12} className="mr-1" />
+                              Steam
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                
+                <Separator className="bg-gray-700" />
+                
+                <div className="text-center py-4">
+                  <p className="text-gray-400 text-sm mb-3">Хочешь больше обзоров?</p>
+                  <Button asChild size="sm" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700">
+                    <a href="https://t.me/yariktyt5" target="_blank" rel="noopener noreferrer">
+                      <Icon name="MessageCircle" size={16} className="mr-2" />
+                      Подписаться на канал
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+          
+          <Button variant="outline" className="border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white hidden md:flex">
+            <span>Подписаться</span>
+          </Button>
+        </div>
       </header>
 
       {/* Hero Section */}
