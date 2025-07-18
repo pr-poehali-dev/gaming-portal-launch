@@ -17,6 +17,7 @@ const Index = () => {
       image: "https://cdn.poehali.dev/files/b1da5fe9-d1a3-44cb-99fb-e23db2b26423.jpg",
       reviewUrl: "https://rutube.ru/video/6376135964f54a3b4f6d2d9c3240d670/?r=plwm",
       steamUrl: "https://store.steampowered.com/app/1118200/People_Playground/",
+      systemRequirementsUrl: "https://store.steampowered.com/app/1118200/People_Playground/#sysreq",
       hasReview: true
     },
     {
@@ -25,6 +26,7 @@ const Index = () => {
       genre: "Шутер",
       image: "https://cdn.poehali.dev/files/7ad8b8cd-2782-4b12-81d8-672a7840d629.png",
       steamUrl: "https://store.steampowered.com/app/730/CounterStrike_2/",
+      systemRequirementsUrl: "https://store.steampowered.com/app/730/CounterStrike_2/#sysreq",
       hasReview: false
     },
     {
@@ -33,6 +35,7 @@ const Index = () => {
       genre: "RPG",
       image: "/placeholder.svg",
       steamUrl: "https://store.steampowered.com/app/1091500/Cyberpunk_2077/",
+      systemRequirementsUrl: "https://store.steampowered.com/app/1091500/Cyberpunk_2077/#sysreq",
       hasReview: false
     },
     {
@@ -41,6 +44,7 @@ const Index = () => {
       genre: "RPG",
       image: "/placeholder.svg",
       steamUrl: "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
+      systemRequirementsUrl: "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/#sysreq",
       hasReview: false
     }
   ];
@@ -167,6 +171,12 @@ const Index = () => {
                             <a href={game.steamUrl} target="_blank" rel="noopener noreferrer">
                               <Icon name="ExternalLink" size={12} className="mr-1" />
                               Steam
+                            </a>
+                          </Button>
+                          <Button asChild size="sm" variant="outline" className="border-green-500 text-green-400 hover:bg-green-500 hover:text-white text-xs h-7">
+                            <a href={game.systemRequirementsUrl} target="_blank" rel="noopener noreferrer">
+                              <Icon name="Monitor" size={12} className="mr-1" />
+                              Системные требования
                             </a>
                           </Button>
                         </div>
