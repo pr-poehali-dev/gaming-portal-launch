@@ -33,7 +33,7 @@ const Index = () => {
       title: "Cyberpunk 2077",
       rating: 9.1,
       genre: "RPG",
-      image: "/placeholder.svg",
+      image: "/img/d0da11ff-ac07-4e5e-b554-07c23e047a92.jpg",
       steamUrl: "https://store.steampowered.com/app/1091500/Cyberpunk_2077/",
       systemRequirementsUrl: "https://store.steampowered.com/app/1091500/Cyberpunk_2077/#sysreq",
       hasReview: false
@@ -42,7 +42,7 @@ const Index = () => {
       title: "Baldur's Gate 3",
       rating: 9.8,
       genre: "RPG",
-      image: "/placeholder.svg",
+      image: "/img/e88bbd27-77ad-47c0-ab6e-d1977a21987d.jpg",
       steamUrl: "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
       systemRequirementsUrl: "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/#sysreq",
       hasReview: false
