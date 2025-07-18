@@ -2,12 +2,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSystemReqOpen, setIsSystemReqOpen] = useState(false);
 
   const catalogGames = [
     {
@@ -173,12 +175,81 @@ const Index = () => {
                               Steam
                             </a>
                           </Button>
-                          <Button asChild size="sm" variant="outline" className="border-green-500 text-green-400 hover:bg-green-500 hover:text-white text-xs h-7">
-                            <a href={game.systemRequirementsUrl} target="_blank" rel="noopener noreferrer">
-                              <Icon name="Monitor" size={12} className="mr-1" />
-                              Системные требования
-                            </a>
-                          </Button>
+                          {game.title === "People Playground" ? (
+                            <Dialog open={isSystemReqOpen} onOpenChange={setIsSystemReqOpen}>
+                              <DialogTrigger asChild>
+                                <Button size="sm" variant="outline" className="border-green-500 text-green-400 hover:bg-green-500 hover:text-white text-xs h-7">
+                                  <Icon name="Monitor" size={12} className="mr-1" />
+                                  Системные требования
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent className="bg-gray-900 border-gray-700 text-white">
+                                <DialogHeader>
+                                  <DialogTitle className="text-xl font-bold text-orange-400 flex items-center">
+                                    <Icon name="Monitor" size={20} className="mr-2" />
+                                    Системные требования - People Playground
+                                  </DialogTitle>
+                                </DialogHeader>
+                                <div className="space-y-4">
+                                  <div className="bg-gray-800 rounded-lg p-4">
+                                    <h3 className="text-lg font-semibold text-green-400 mb-3">Минимальные требования</h3>
+                                    <div className="grid grid-cols-1 gap-3 text-sm">
+                                      <div className="flex items-center">
+                                        <Icon name="HardDrive" size={16} className="mr-2 text-blue-400" />
+                                        <span className="font-medium text-gray-300">ОС:</span>
+                                        <span className="ml-2">Windows 7</span>
+                                      </div>
+                                      <div className="flex items-center">
+                                        <Icon name="Cpu" size={16} className="mr-2 text-orange-400" />
+                                        <span className="font-medium text-gray-300">Процессор:</span>
+                                        <span className="ml-2">Intel Pentium 4 1.60GHz; AMD Athlon 64 2800+</span>
+                                      </div>
+                                      <div className="flex items-center">
+                                        <Icon name="MemoryStick" size={16} className="mr-2 text-purple-400" />
+                                        <span className="font-medium text-gray-300">Оперативная память:</span>
+                                        <span className="ml-2">4 GB</span>
+                                      </div>
+                                      <div className="flex items-center">
+                                        <Icon name="HardDrive" size={16} className="mr-2 text-yellow-400" />
+                                        <span className="font-medium text-gray-300">Свободное место:</span>
+                                        <span className="ml-2">300 MB</span>
+                                      </div>
+                                      <div className="flex items-center">
+                                        <Icon name="Monitor" size={16} className="mr-2 text-red-400" />
+                                        <span className="font-medium text-gray-300">Видеокарта:</span>
+                                        <span className="ml-2">GeForce4 MX 440</span>
+                                      </div>
+                                      <div className="flex items-center">
+                                        <Icon name="Gamepad2" size={16} className="mr-2 text-green-400" />
+                                        <span className="font-medium text-gray-300">DirectX:</span>
+                                        <span className="ml-2">10</span>
+                                      </div>
+                                      <div className="flex items-center">
+                                        <Icon name="Mouse" size={16} className="mr-2 text-cyan-400" />
+                                        <span className="font-medium text-gray-300">Дополнительно:</span>
+                                        <span className="ml-2">Клавиатура, мышь</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="flex justify-center">
+                                    <Button asChild className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700">
+                                      <a href={game.steamUrl} target="_blank" rel="noopener noreferrer">
+                                        <Icon name="ExternalLink" size={16} className="mr-2" />
+                                        Купить в Steam
+                                      </a>
+                                    </Button>
+                                  </div>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
+                          ) : (
+                            <Button asChild size="sm" variant="outline" className="border-green-500 text-green-400 hover:bg-green-500 hover:text-white text-xs h-7">
+                              <a href={game.systemRequirementsUrl} target="_blank" rel="noopener noreferrer">
+                                <Icon name="Monitor" size={12} className="mr-1" />
+                                Системные требования
+                              </a>
+                            </Button>
+                          )}
                         </div>
                       </div>
                     </div>
