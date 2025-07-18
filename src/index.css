@@ -97,5 +97,66 @@
 
   body {
     @apply bg-background text-foreground;
+    position: relative;
+    overflow-x: hidden;
   }
+}
+
+/* RGB Gaming Sidebars */
+.rgb-sidebar {
+  position: fixed;
+  top: 0;
+  width: 8px;
+  height: 100vh;
+  z-index: 1000;
+  background: linear-gradient(
+    0deg,
+    #ff0000,
+    #ff8000,
+    #ffff00,
+    #80ff00,
+    #00ff00,
+    #00ff80,
+    #00ffff,
+    #0080ff,
+    #0000ff,
+    #8000ff,
+    #ff00ff,
+    #ff0080
+  );
+  background-size: 100% 1200%;
+  animation: rgb-flow 3s linear infinite;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.rgb-sidebar-left {
+  left: 0;
+}
+
+.rgb-sidebar-right {
+  right: 0;
+  animation-delay: -1.5s;
+}
+
+@keyframes rgb-flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+/* Glow effect */
+.rgb-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  right: -2px;
+  bottom: 0;
+  background: inherit;
+  filter: blur(4px);
+  opacity: 0.6;
+  z-index: -1;
 }

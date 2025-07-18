@@ -15,6 +15,9 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      {/* RGB Gaming Sidebars */}
+      <div className="rgb-sidebar rgb-sidebar-left"></div>
+      <div className="rgb-sidebar rgb-sidebar-right"></div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
